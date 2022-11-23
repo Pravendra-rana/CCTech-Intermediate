@@ -15,7 +15,7 @@ void permutations(string s)
 int main() 
 {
     string str;
-    cout << "enter a string : ";
+    cout << "Enter a string : ";
     cin >> str;
     permutations(str);
     return 0;
