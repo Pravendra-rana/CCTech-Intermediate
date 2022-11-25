@@ -1,0 +1,2 @@
+Task : return every permutation of given string input 
+Test = if given "biro" then result ["biro", "bior", "brio", "broi", "boir", "bori", "ibro", "ibor", "irbo", "irob", "iobr", "iorb", "rbio", "rboi", "ribo", "riob", "roib", "robi", "obir", "obri", "oibr", "oirb", "orbi", "orib"]
