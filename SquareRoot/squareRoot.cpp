@@ -23,8 +23,8 @@ double squareRoot(double number){
 
 int main(){
     assert(squareRoot(-1) == 1);
-    assert(abs(squareRoot(4) - 2) < 1e-9);
     assert(abs(squareRoot(0) - 0) < 1e-9);
     assert(abs(squareRoot(2) - 1.41421356237) < 1e-9);
+    assert(abs(squareRoot(4) - 2) < 1e-9);
     return 0;
 }
