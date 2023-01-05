@@ -31,7 +31,7 @@ void VenderMachine::acceptCoin(int argc, char* argv[])
             totalAmount += coins[coin];
         else
         {
-           cerr << "INVALID COINS, PLEASE COLLECT IT AND TRY AGAIN WITH VALID COINS." << endl;
+           cerr << "INVALID COINS, PLEASE COLLECT YOUR COIN AND TRY AGAIN WITH VALID COINS." << endl;
            return;
         }
     }
