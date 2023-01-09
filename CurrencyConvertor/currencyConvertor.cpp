@@ -1,19 +1,19 @@
 #include "currencyConvertor.h"
 
-bool USD::getExchangeRate() {
+bool GBP::getExchangeRate() {
     currencyExchangeRate = 1;
     return true;
 }
 
-double USD::toUSDCurrency(double currencyInUSD) {
-    return currencyInUSD / currencyExchangeRate;
+double GBP::toGBPCurrency(double currencyInGBP) {
+    return currencyInGBP / currencyExchangeRate;
 }
 
-double USD::fromUSDCurrency(double currencyInUSD) {
-    return currencyInUSD * currencyExchangeRate;
+double GBP::fromGBPCurrency(double currencyInGBP) {
+    return currencyInGBP * currencyExchangeRate;
 }
 
-bool GBP::getExchangeRate() {
+bool USD::getExchangeRate() {
     string filename = "input.txt";
     ifstream file(filename);
     if (!file.is_open()) {
@@ -31,12 +31,12 @@ bool GBP::getExchangeRate() {
     return true;
 }
 
-double GBP::toUSDCurrency(double currencyInGBP) {
-    return currencyInGBP / currencyExchangeRate;
+double USD::toGBPCurrency(double currencyInUSD) {
+    return currencyInUSD / currencyExchangeRate;
 }
 
-double GBP::fromUSDCurrency(double currencyInUSD) {
-    return currencyInUSD * currencyExchangeRate;    
+double USD::fromGBPCurrency(double currencyInGBP) {
+    return currencyInGBP * currencyExchangeRate;    
 }
 
 bool INR::getExchangeRate() {
@@ -57,12 +57,12 @@ bool INR::getExchangeRate() {
     return true;
 }
 
-double INR::toUSDCurrency(double currencyInINR) {
+double INR::toGBPCurrency(double currencyInINR) {
     return currencyInINR / currencyExchangeRate;
 }
 
-double INR::fromUSDCurrency(double currencyInUSD) {
-    return currencyInUSD * currencyExchangeRate;
+double INR::fromGBPCurrency(double currencyInGBP) {
+    return currencyInGBP * currencyExchangeRate;
 }
 
 bool EUR::getExchangeRate() {
@@ -83,10 +83,10 @@ bool EUR::getExchangeRate() {
     return true;
 }
 
-double EUR::toUSDCurrency(double currencyInEUR) {
+double EUR::toGBPCurrency(double currencyInEUR) {
     return currencyInEUR / currencyExchangeRate;
 }
 
-double EUR::fromUSDCurrency(double currencyInUSD) {
-    return currencyInUSD * currencyExchangeRate;   
+double EUR::fromGBPCurrency(double currencyInGBP) {
+    return currencyInGBP * currencyExchangeRate;   
 }
