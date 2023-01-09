@@ -21,34 +21,32 @@ int main()
         vector<string> inputCurrencyNames = {"USD", "INR", "GBP", "EUR"};
         CurrencyConverter *inputCurrency;
         int inputCurrencyIndex;
-        {
 
-            while (1)
+        while (1)
+        {
+            cout << "Select the input currency from the list" << endl;
             {
-                cout << "Select the input currency from the list" << endl;
-                {
-                    int i = 1;
-                    for (auto currencyName : inputCurrencyNames)
-                        cout << i++ << "." << currencyName << endl;
-                }
-                string temp;
-                cin >> temp;
-                if (all_of(temp.begin(), temp.end(), ::isdigit) && (stoi(temp) >= 0 && stoi(temp) < inputCurrencies.size()))
-                {
-                    inputCurrencyIndex = stoi(temp);
-                    break;
-                }
-                if (all_of(temp.begin(), temp.end(), ::isdigit))
-                {
-                    cout << "Please enter a valid number" << endl;
-                }
-                else if (stoi(temp) >= 0 && stoi(temp) < inputCurrencies.size())
-                {
-                    cout << "The number is out of range" << endl;
-                }
+                int i = 1;
+                for (auto currencyName : inputCurrencyNames)
+                    cout << i++ << "." << currencyName << endl;
             }
-            inputCurrency = inputCurrencies.at(inputCurrencyIndex - 1);
+            string temp;
+            cin >> temp;
+            if (all_of(temp.begin(), temp.end(), ::isdigit) && (stoi(temp) >= 0 && stoi(temp) < inputCurrencies.size()))
+            {
+                inputCurrencyIndex = stoi(temp);
+                break;
+            }
+            if (all_of(temp.begin(), temp.end(), ::isdigit))
+            {
+                cout << "Please enter a valid number" << endl;
+            }
+            else if (stoi(temp) >= 0 && stoi(temp) < inputCurrencies.size())
+            {
+                cout << "The number is out of range" << endl;
+            }
         }
+        inputCurrency = inputCurrencies.at(inputCurrencyIndex - 1);
 
         vector<CurrencyConverter *> outputCurrencies = {&usd, &inr, &gbp, &eur};
         vector<string> outputCurrencyNames = {"USD", "INR", "GBP", "EUR"};
@@ -78,13 +76,14 @@ int main()
             {
                 cout << "The number is out of range" << endl;
             }
-            
+
             outputCurrency = outputCurrencies.at(outputCurrencyIndex - 1);
         }
+        
         double moneyInInPutCurrency;
         cout << "Please enter the amount\n>";
         cin >> moneyInInPutCurrency;
-        
+
         inputCurrency->getExchangeRate();
         double moneyInGBP = inputCurrency->toGBPCurrency(moneyInInPutCurrency);
         outputCurrency->getExchangeRate();
