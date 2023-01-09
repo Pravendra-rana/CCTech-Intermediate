@@ -1,8 +1,7 @@
-#include "currencyConvertor.h"
+#include "currencyConverter.h"
 
 #include <iostream>
 #include <vector>
-#include <ctime>
 #include <algorithm>
 
 using namespace std;
@@ -17,8 +16,11 @@ int main()
         INR inr;
         GBP gbp;
         EUR eur;
-        vector<CurrencyConverter *> inputCurrencies = {&usd, &inr, &gbp, &eur};
-        vector<string> inputCurrencyNames = {"USD", "INR", "GBP", "EUR"};
+        CHF chf;
+        AUD aud;
+        SGD sgd;
+        vector<CurrencyConverter *> inputCurrencies = {&usd, &inr, &gbp, &eur, &chf, &aud, &sgd};
+        vector<string> inputCurrencyNames = {"USD", "INR", "GBP", "EUR", "CHF", "AUD", "SGD"};
         CurrencyConverter *inputCurrency;
         int inputCurrencyIndex;
 
@@ -45,11 +47,23 @@ int main()
             {
                 cout << "The number is out of range" << endl;
             }
+            inputCurrency = inputCurrencies.at(inputCurrencyIndex - 1);
         }
-        inputCurrency = inputCurrencies.at(inputCurrencyIndex - 1);
 
-        vector<CurrencyConverter *> outputCurrencies = {&usd, &inr, &gbp, &eur};
-        vector<string> outputCurrencyNames = {"USD", "INR", "GBP", "EUR"};
+        vector<CurrencyConverter *> outputCurrencies;
+        vector<string> outputCurrencyNames;
+        {
+            int it = 0;
+
+            for (int it = 0; it < inputCurrencies.size(); it++)
+            {
+                if (inputCurrency != inputCurrencies.at(it))
+                {
+                    outputCurrencies.emplace_back(inputCurrencies.at(it));
+                    outputCurrencyNames.emplace_back(inputCurrencyNames.at(it));
+                }
+            }
+        }
         CurrencyConverter *outputCurrency;
         int outputCurrencyIndex;
         while (1)
@@ -79,7 +93,7 @@ int main()
 
             outputCurrency = outputCurrencies.at(outputCurrencyIndex - 1);
         }
-        
+
         double moneyInInPutCurrency;
         cout << "Please enter the amount\n>";
         cin >> moneyInInPutCurrency;
@@ -90,7 +104,7 @@ int main()
         double moneyInOutPutCurrency = outputCurrency->fromGBPCurrency(moneyInGBP);
         cout << moneyInInPutCurrency << inputCurrencies.at(inputCurrencyIndex - 1) << " would be "
              << moneyInOutPutCurrency << outputCurrencies.at(outputCurrencyIndex - 1) << " on"
-             << " 2023-01-06" << endl;
+             << " 2023-01-09" << endl;
 
         char Continue;
         cout << "Do you want to continue with another conversion (Y/N)" << endl;

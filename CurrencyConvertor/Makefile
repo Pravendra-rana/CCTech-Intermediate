@@ -1,9 +1,9 @@
 .PHONY: all
 all: compile
 
-compile:   	main.o currencyConvertor.o
-			g++ main.cpp currencyConvertor.o -o currencyConvertor
+compile:   	main.o currencyConverter.o
+			g++ main.cpp currencyConverter.o -o currencyConverter
 
 .PHONY: clean
 clean:
-	$(RM) *.[adios] *.ii test.exe
+	$(RM) *.[adios] *.ii 
