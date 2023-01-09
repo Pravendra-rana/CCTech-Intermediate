@@ -40,7 +40,7 @@ double GBP::fromUSDCurrency(double currencyInUSD) {
 }
 
 bool INR::getExchangeRate() {
-    string filename = "exchangeRates.txt";
+    string filename = "input.txt";
     ifstream file(filename);
     if (!file.is_open()) {
         cerr << filename << " does not exists." << endl;
@@ -66,7 +66,7 @@ double INR::fromUSDCurrency(double currencyInUSD) {
 }
 
 bool EUR::getExchangeRate() {
-    string filename = "exchangeRates.txt";
+    string filename = "input.txt";
     ifstream file(filename);
     if (!file.is_open()) {
         cerr << filename << " does not exists." << endl;
